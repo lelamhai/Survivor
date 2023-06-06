@@ -14,7 +14,7 @@ public class PlayerMove : BaseMonoBehaviour
 
     private void Movement()
     {
-        _currentPos = InputManager.Instance._MovePos.normalized;
+        _currentPos = InputManager.Instance._MovePos;
         _rigidbody2D.MovePosition(_rigidbody2D.position + (_currentPos * _moveSpeed * Time.deltaTime));
     }
 
@@ -23,6 +23,6 @@ public class PlayerMove : BaseMonoBehaviour
 
     protected override void LoadComponent()
     {
-        _rigidbody2D = this.transform.GetComponent<Rigidbody2D>();
+        _rigidbody2D = this.GetComponent<Rigidbody2D>();
     }
 }
