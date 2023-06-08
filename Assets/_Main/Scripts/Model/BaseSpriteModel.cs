@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(BaseSpriteModel))]
 public abstract class BaseSpriteModel : BaseMonoBehaviour
 {
     [SerializeField] private SpriteRenderer _model = null;
