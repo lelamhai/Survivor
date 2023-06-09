@@ -1,16 +1,11 @@
 using UnityEngine;
 
-public class InputManager : MonoBehaviour
+public class InputManager : Singleton<InputManager>
 {
-    public static InputManager Instance { get; private set; }
     public Vector2 _MovePos { get; private set; }
     private bool _isJoystick = false;
 
-    private void Awake()
-    {
-        Instance = this;
-    }
-
+   
     public void ActiveJoystick(Vector2 currentPos, bool active)
     {
         _MovePos = currentPos;
