@@ -26,7 +26,6 @@ public abstract class BaseSpriteModel : BaseMonoBehaviour
 
     private void SetFlip()
     {
-        //_currentPos = _baseMove.GetCurrentPos();
         if (_networkPlayerPosition.Value.x != 0)
         {
             _model.flipX = _networkPlayerPosition.Value.x < 0;
