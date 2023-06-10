@@ -24,7 +24,7 @@ public abstract class BaseHolders : BaseMonoBehaviour
         }
     }
 
-    public int CountPool(string name)
+    public int CheckGameObjectPool(string name)
     {
         foreach (var item in _listPoolObject)
         {

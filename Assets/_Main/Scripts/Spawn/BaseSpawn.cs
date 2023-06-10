@@ -10,7 +10,7 @@ public abstract class BaseSpawn : BaseMonoBehaviour
 
     public void SpawnGameObject(string name, Vector3 point)
     {
-        if (_baseHolders.CountPool(name) > 0)
+        if (_baseHolders.CheckGameObjectPool(name) > 0)
         {
             Transform undoGameObject = _baseHolders.UndoGameObject(name);
             if (undoGameObject == null) return;
