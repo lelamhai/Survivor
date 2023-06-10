@@ -8,6 +8,7 @@ public class PlayerMove : BaseMove
 
     private void FixedUpdate()
     {
+        if (!IsOwner) return;
         Movement();
     }
 

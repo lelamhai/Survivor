@@ -8,7 +8,7 @@ public class Camera : BaseMonoBehaviour
 
     private void Update()
     {
-        FollowPlayer();
+        //FollowPlayer();
     }
 
     private void FollowPlayer()

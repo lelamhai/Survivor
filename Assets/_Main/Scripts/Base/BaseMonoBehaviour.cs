@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 
-public abstract class BaseMonoBehaviour : MonoBehaviour
+public abstract class BaseMonoBehaviour : NetworkBehaviour
 {
     private void Reset()
     {
