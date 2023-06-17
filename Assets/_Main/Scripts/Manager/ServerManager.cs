@@ -11,6 +11,7 @@ using UnityEngine;
 public class ServerManager : Singleton<ServerManager>
 {
     [SerializeField] private TMP_Text _joinCode = null;
+    [SerializeField] private TMP_InputField _inputFieldCode = null;
 
     private void Start()
     {
@@ -36,7 +37,7 @@ public class ServerManager : Singleton<ServerManager>
 
     public void StartClient()
     {
-        string ipAddress = GetLocalIPv4();
+        string ipAddress = _inputFieldCode.text;
         UnityTransport utp = NetworkManager.Singleton.GetComponent<UnityTransport>();
         utp.SetConnectionData(ipAddress, 7777);
 
