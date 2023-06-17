@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerCameraFollow : BaseMonoBehaviour
 {
     private Vector2 _lastPos;
+
     private void Update()
     {
         if (IsClient && IsOwner)

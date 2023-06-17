@@ -1,30 +1,31 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Text;
 using Unity.Netcode;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class UIManager : MonoBehaviour
+public class UIManager : BaseMonoBehaviour
 {
-    public void StartServer()
-    {
-        NetworkManager.Singleton.StartServer();
-        HideMenu();
-    }
-
     public void StartHost()
     {
-        NetworkManager.Singleton.StartHost();
+        ServerManager.Instance.StartHost();
         HideMenu();
     }
 
     public void StartClient()
     {
-        NetworkManager.Singleton.StartClient();
+        ServerManager.Instance.StartClient();
         HideMenu();
     }
 
     private void HideMenu()
     {
         this.gameObject.SetActive(false);
+    }
+
+    protected override void SetDefaultValue()
+    {
     }
 }

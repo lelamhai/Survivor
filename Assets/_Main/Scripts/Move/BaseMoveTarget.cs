@@ -9,7 +9,7 @@ public abstract class BaseMoveTarget : BaseMove
 
     private void Start()
     {
-        _target = GameObject.Find("Player").GetComponent<Transform>();
+        //_target = GameObject.Find("Player").GetComponent<Transform>();
     }
 
     private void FixedUpdate()

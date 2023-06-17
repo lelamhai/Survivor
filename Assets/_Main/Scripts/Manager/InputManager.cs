@@ -24,4 +24,7 @@ public class InputManager : Singleton<InputManager>
         var y = Input.GetAxis("Vertical");
         _MovePos = new Vector2(x, y);
     }
+
+    protected override void SetDefaultValue()
+    {}
 }
