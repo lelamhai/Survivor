@@ -8,7 +8,7 @@ using TMPro;
 using Unity.Netcode.Transports.UTP;
 using UnityEngine;
 
-public class ServerManager : Singleton<ServerManager>
+public class ServerManager : SingletonNetwork<ServerManager>
 {
     [SerializeField] private TMP_Text _joinCode = null;
     [SerializeField] private TMP_InputField _inputFieldCode = null;

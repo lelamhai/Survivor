@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEngine;
 
-public abstract class BaseSpawn : BaseMonoBehaviour
+public abstract class BaseSpawn : BaseNetworkBehaviour
 {
     [Header("Base Spawn")]
     [SerializeField] protected BasePrefabs _basePrefabs = null;

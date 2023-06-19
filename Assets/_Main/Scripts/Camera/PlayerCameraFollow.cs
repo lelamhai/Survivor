@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerCameraFollow : BaseMonoBehaviour
+public class PlayerCameraFollow : BaseNetworkBehaviour
 {
     private Vector2 _lastPos;
 

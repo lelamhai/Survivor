@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class BasePrefabs : BaseMonoBehaviour
+public abstract class BasePrefabs : BaseNetworkBehaviour
 {
     [Header("Base Prefabs")]
     [SerializeField] protected List<Transform> _listPrefabs = new List<Transform>();

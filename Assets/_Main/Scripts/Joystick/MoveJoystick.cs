@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class MoveJoystick : BaseMonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDragHandler
+public class MoveJoystick : BaseNetworkBehaviour, IPointerDownHandler, IPointerUpHandler, IDragHandler
 {
     [SerializeField] private RectTransform _joystick = null;
     [SerializeField] private RectTransform _innerCircle = null;

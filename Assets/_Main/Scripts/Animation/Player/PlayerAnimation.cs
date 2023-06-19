@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEngine;
 
-public class PlayerAnimation : BaseMonoBehaviour
+public class PlayerAnimation : BaseNetworkBehaviour
 {
     [SerializeField] private Animator _animator = null;
     [SerializeField] private Vector2 _currentPos = Vector2.zero;

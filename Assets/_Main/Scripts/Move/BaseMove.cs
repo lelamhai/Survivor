@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEngine;
 
-public abstract class BaseMove : BaseMonoBehaviour
+public abstract class BaseMove : BaseNetworkBehaviour
 {
     [SerializeField] protected Vector2 _currentPos = Vector2.zero;
     [SerializeField] protected float _moveSpeed = 2f;

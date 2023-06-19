@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEngine;
 
-public abstract class BaseSpriteModel : BaseMonoBehaviour
+public abstract class BaseSpriteModel : BaseNetworkBehaviour
 {
     [SerializeField] private SpriteRenderer _model = null;
     [SerializeField] private BaseMove _baseMove = null;

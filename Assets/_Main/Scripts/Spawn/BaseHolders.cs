@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class BaseHolders : BaseMonoBehaviour
+public abstract class BaseHolders : BaseNetworkBehaviour
 {
     [Header("Base Holders")]
     [SerializeField] protected List<Transform> _listPoolObject = new List<Transform>();

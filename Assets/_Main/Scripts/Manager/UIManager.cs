@@ -6,7 +6,7 @@ using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UIManager : BaseMonoBehaviour
+public class UIManager : BaseNetworkBehaviour
 {
     public void StartHost()
     {

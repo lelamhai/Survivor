@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class BaseAnimation : BaseMonoBehaviour
+public abstract class BaseAnimation : BaseNetworkBehaviour
 {
     [SerializeField] private Animator _animator = null;
     [SerializeField] private BaseMove _baseMove = null;
