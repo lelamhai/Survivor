@@ -1,14 +1,23 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 
 public class PlayerMove : BaseMove
 {
     [SerializeField] private Rigidbody2D _rigidbody2D = null;
 
-    private void FixedUpdate()
+    private void Update()
     {
         if (!IsOwner) return;
+        MoveServerRpc();
+
+    }
+
+    [ServerRpc]
+    public void MoveServerRpc()
+    {
         Movement();
     }
 

@@ -10,13 +10,17 @@ public class UIManager : BaseNetworkBehaviour
 {
     public void StartHost()
     {
-        ServerManager.Instance.StartHost();
+        //ServerManager.Instance.StartHost();
+
+        RelayManager.Instance.StartCoroutine(RelayManager.Instance.ConfigureTransportAndStartNgoAsHost());
         HideMenu();
     }
 
     public void StartClient()
     {
-        ServerManager.Instance.StartClient();
+        //ServerManager.Instance.StartClient();
+
+        RelayManager.Instance.StartCoroutine(RelayManager.Instance.ConfigureTransportAndStartNgoAsConnectingPlayer());
         HideMenu();
     }
 

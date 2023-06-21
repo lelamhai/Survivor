@@ -30,7 +30,7 @@ public class PlayerAnimation : BaseNetworkBehaviour
     }
 
     [ServerRpc]
-    public void UpdatePlayerStateServerRpc(Vector2 pos)
+    private void UpdatePlayerStateServerRpc(Vector2 pos)
     {
         _networkPlayerPosition.Value = pos;
     }

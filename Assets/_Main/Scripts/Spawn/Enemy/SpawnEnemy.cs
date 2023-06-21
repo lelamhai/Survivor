@@ -5,16 +5,17 @@ using UnityEngine;
 
 public class SpawnEnemy : SingletonSpawn<SpawnEnemy>
 {
-    private void Start()
+    public override void OnNetworkSpawn()
     {
-        if (!IsServer) return; 
+        base.OnNetworkSpawn();
+        Spawn();
+    }
 
-        var list = SpawnEnemy.Instance.GetPointsGameObject();
-        for (int i = 0; i < list.Count; i++)
-        {
-             SpawnEnemy.Instance.SpawnGameObject("Enemy", list[i].position);
-
-        }
+    private void Spawn()
+    {
+        if (!IsServer) return;
+        //var list = SpawnEnemy.Instance.GetPointsGameObject();
+        SpawnEnemy.Instance.SpawnGameObject("Enemy", new Vector3(0, 4, 0));
     }
 
     protected override void SetDefaultValue()
