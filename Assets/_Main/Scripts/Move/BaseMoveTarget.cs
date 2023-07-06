@@ -7,9 +7,9 @@ public abstract class BaseMoveTarget : BaseMove
     [SerializeField] private Transform _target = null;
     [SerializeField] private bool _isMovement = false;
 
-    private void Start()
+    private void Awake()
     {
-        _target = GameObject.Find("Player").GetComponent<Transform>();
+        //_target = GameObject.Find("Player").GetComponent<Transform>();
     }
 
     private void FixedUpdate()
@@ -22,5 +22,10 @@ public abstract class BaseMoveTarget : BaseMove
     {
         _currentPos = (_target.position - this.transform.position).normalized;
         this.transform.position = Vector3.MoveTowards(this.transform.position, _target.position, _moveSpeed);
+    }
+
+    public void SetActiveMove(bool active)
+    {
+        _isMovement = active;
     }
 }

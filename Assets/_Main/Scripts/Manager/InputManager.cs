@@ -5,7 +5,6 @@ public class InputManager : Singleton<InputManager>
     public Vector2 _MovePos { get; private set; }
     private bool _isJoystick = false;
 
-   
     public void ActiveJoystick(Vector2 currentPos, bool active)
     {
         _MovePos = currentPos;
@@ -24,4 +23,7 @@ public class InputManager : Singleton<InputManager>
         var y = Input.GetAxis("Vertical");
         _MovePos = new Vector2(x, y);
     }
+
+    protected override void SetDefaultValue()
+    {}
 }
