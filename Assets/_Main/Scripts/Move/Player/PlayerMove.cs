@@ -1,37 +1,33 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.Netcode;
 using UnityEngine;
 
 public class PlayerMove : BaseMove
 {
-    [SerializeField] private Rigidbody2D _rigidbody2D = null;
+    [SerializeField] private Rigidbody2D _rigidbody2D;
 
-    private void Update()
-    {
-        if (!IsOwner) return;
-        MoveServerRpc();
-
-    }
-
-    [ServerRpc]
-    public void MoveServerRpc()
+    private void LateUpdate()
     {
         Movement();
     }
 
     protected override void Movement()
     {
-        _currentPos = InputManager.Instance._MovePos;
-        _rigidbody2D.MovePosition(_rigidbody2D.position + (_currentPos * _moveSpeed * Time.deltaTime));
+        Vector2 nextVector = InputManager.Instance._Pos.normalized * _speed * Time.fixedDeltaTime;
+        _rigidbody2D.MovePosition(_rigidbody2D.position + nextVector);
     }
 
     protected override void SetDefaultValue()
-    {}
+    {
+        _speed = 2f;
+    }
 
     protected override void LoadComponent()
     {
-        _rigidbody2D = this.GetComponent<Rigidbody2D>();
+        base.LoadComponent();
+        LoadRigidbody();
+    }
+
+    private void LoadRigidbody()
+    {
+        _rigidbody2D = this.transform.GetComponent<Rigidbody2D>();
     }
 }

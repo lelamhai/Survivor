@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c70c2aa5816d1a4d87d4a6e8a8ae3e2, type: 3}
+  m_Name: DatabasePlayers
+  m_EditorClassIdentifier: 
+  _dictionaryGameObject:
+    list:
+    - Key: 0
+      Value: {fileID: 4721368429814617959, guid: 5e6e14f2946d6084b88a4c44bb420c54, type: 3}
+    - Key: 1
+      Value: {fileID: 4721368429814617959, guid: 190d1c0f657229647b5c1edbd088fe96, type: 3}
+    keyCollision: 0
+  _pathFolder: Characters/Players/
