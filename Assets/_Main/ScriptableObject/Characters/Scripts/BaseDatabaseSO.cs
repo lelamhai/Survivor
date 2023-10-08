@@ -27,10 +27,11 @@ public abstract class BaseDatabaseSO : ScriptableObject
 
     private void LoadScriptableObject()
     {
+#if UNITY_EDITOR
         _path = Path.Combine(Const.Path.PROJECT_FOLDER, Const.Path.PATH_PREFABS, _pathFolder);
         _pathAsset = Path.Combine(Const.Path.PATH_PREFABS, _pathFolder);
         var info = new DirectoryInfo(_path);
-        var fileInfo = info.GetFiles("*"+Const.Prefix.PREFABS, SearchOption.AllDirectories);
+        var fileInfo = info.GetFiles("*" + Const.Prefix.PREFABS, SearchOption.AllDirectories);
 
         for (int i = 0; i < fileInfo.Length; i++)
         {
@@ -38,5 +39,6 @@ public abstract class BaseDatabaseSO : ScriptableObject
             gameObject._Attribute._BaseAttributeSO.id = i;
             _dictionaryGameObject.Add(i, gameObject.transform);
         }
+#endif
     }
 }

@@ -23,7 +23,8 @@ public abstract class BaseSpawn : BaseMonoBehaviour
             Transform findObject = FindDatabaseById(id);
             if(findObject != null)
             {
-                Clone(findObject);
+                Transform clone = Clone(findObject);
+                clone.SetParent(_baseHolders.transform);
             }
         }
     }

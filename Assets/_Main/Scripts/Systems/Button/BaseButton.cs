@@ -7,10 +7,10 @@ public abstract class BaseButton : BaseMonoBehaviour
 
     private void Start()
     {
-        _button.onClick.AddListener(TaskOnClick);
+        _button.onClick.AddListener(OnClickButton);
     }
 
-    protected abstract void TaskOnClick();
+    protected abstract void OnClickButton();
 
     protected override void SetDefaultValue()
     {}

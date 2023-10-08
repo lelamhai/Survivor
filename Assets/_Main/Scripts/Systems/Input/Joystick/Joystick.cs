@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Joystick : BaseMonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDragHandler, IInputMove
+public class Joystick : BaseMonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDragHandler
 {
     [SerializeField] private RectTransform _joystick = null;
     [SerializeField] private RectTransform _innerCircle = null;
@@ -57,11 +57,5 @@ public class Joystick : BaseMonoBehaviour, IPointerDownHandler, IPointerUpHandle
     {
         _joystick = this.GetComponent<RectTransform>();
         _innerCircle = this.transform.Find("Inner").GetComponent<RectTransform>();
-    }
-
-    public Vector3 Move()
-    {
-        Debug.Log("Joystick");
-        return _pos;
     }
 }

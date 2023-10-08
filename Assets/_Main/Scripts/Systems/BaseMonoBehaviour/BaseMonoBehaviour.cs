@@ -1,6 +1,6 @@
-using UnityEngine;
+using Unity.Netcode;
 
-public abstract class BaseMonoBehaviour : MonoBehaviour
+public abstract class BaseMonoBehaviour : NetworkBehaviour
 {
     private void Reset()
     {
@@ -9,9 +9,7 @@ public abstract class BaseMonoBehaviour : MonoBehaviour
     }
 
     protected virtual void LoadComponent()
-    {
-
-    }
+    {}
 
     protected abstract void SetDefaultValue();
 }

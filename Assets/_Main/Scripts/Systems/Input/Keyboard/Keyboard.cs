@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Keyboard : BaseMonoBehaviour, IInputMove
+public class Keyboard : BaseMonoBehaviour
 {
     private Vector3 _pos = Vector2.zero;
 
@@ -18,10 +18,4 @@ public class Keyboard : BaseMonoBehaviour, IInputMove
 
     protected override void SetDefaultValue()
     { }
-
-    public Vector3 Move()
-    {
-        Debug.Log("Joystick");
-        return _pos;
-    }
 }
