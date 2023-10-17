@@ -13,11 +13,7 @@ public abstract class BaseButton : BaseMonoBehaviour
     protected abstract void OnClickButton();
 
     protected override void SetDefaultValue()
-    {}
-
-    protected override void LoadComponent()
     {
-        base.LoadComponent();
         LoadButton();
     }
 

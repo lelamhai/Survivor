@@ -1,44 +1,92 @@
-using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.Events;
 
+public enum GameStates
+{
+    None,
+    Initialize,
+    StartGame,
+    SetupLevel,
+    GamePlay,
+    ResetGame,
+    EndLevel,
+    FinishLevel,
+    LevelUp,
+    NextLevel,
+    FinishGame,
+    LoadingGame,
+    StopGame,
+    GameOver
+}
+
 public class GameManager : Singleton<GameManager>
 {
-    public UnityAction _StartGame, _GamePlay, _FinishLevel, _GameOver;
-    private int ConnectedPlayers;
+    [SerializeField] private GameStates _currentStateGame = GameStates.None;
 
-    public override void OnNetworkSpawn()
+    public UnityAction _None, _Initialize, _StartGame, _SetupLevel, _GameOver, _RestartGame, _LevelUp, _EndLevel, _FinishLevel, _NextLevel, _FinishGame, _LoadingGame, _StopGame;
+   
+    private void UpdateGameStates()
     {
-        base.OnNetworkSpawn();
-        NetworkManager.OnServerStarted += Net_ServerStarted;
-    }
-
-    private void Net_ServerStarted()
-    {
-        if (!IsServer) return;
-        ConnectedPlayers++;
-        NetworkManager.OnClientConnectedCallback += net_ClientConnectedCallback;
-    }
-
-    private void net_ClientConnectedCallback(ulong obj)
-    {
-        ConnectedPlayers++;
-        Debug.Log("ConnectedPlayers: " + ConnectedPlayers);
-        if (ConnectedPlayers >= 2)
+        switch (_currentStateGame)
         {
-            StartGame();
+            case GameStates.Initialize:
+                _Initialize?.Invoke();
+                break;
+
+            case GameStates.StartGame:
+                _StartGame?.Invoke();
+                break;
+
+            case GameStates.SetupLevel:
+                _SetupLevel?.Invoke();
+                break;
+
+            case GameStates.GamePlay:
+
+                break;
+
+            case GameStates.GameOver:
+                _GameOver?.Invoke();
+                break;
+
+            case GameStates.EndLevel:
+                _EndLevel?.Invoke();
+                break;
+
+            case GameStates.FinishLevel:
+                _FinishLevel?.Invoke();
+                break;
+
+            case GameStates.LevelUp:
+                _LevelUp?.Invoke();
+                break;
+
+            case GameStates.NextLevel:
+                _NextLevel?.Invoke();
+                break;
+
+            case GameStates.FinishGame:
+                _FinishGame?.Invoke();
+                break;
+
+            case GameStates.ResetGame:
+                _RestartGame?.Invoke();
+                break;
+
+            case GameStates.LoadingGame:
+                _LoadingGame?.Invoke();
+                break;
+
+            case GameStates.StopGame:
+                _StopGame?.Invoke();
+                break;
         }
     }
 
-    private void StartGame()
+    public void SetGameState(GameStates state)
     {
-        StartGameClientRpc();
-    }
-
-    [ClientRpc]
-    private void StartGameClientRpc()
-    {
-        _StartGame?.Invoke();
+        _currentStateGame = state;
+        UpdateGameStates();
     }
 
     protected override void SetDefaultValue()

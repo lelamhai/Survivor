@@ -15,11 +15,7 @@ public class EnemyModel : BaseModel
     }
 
     protected override void SetDefaultValue()
-    {}
-
-    protected override void LoadComponent()
     {
-        base.LoadComponent();
         LoadMove();
     }
 

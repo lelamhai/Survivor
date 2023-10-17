@@ -4,9 +4,8 @@ public abstract class BaseAnimation : BaseMonoBehaviour
 {
     [SerializeField] protected Animator _animator;
 
-    protected override void LoadComponent()
+    protected override void SetDefaultValue()
     {
-        base.LoadComponent();
         LoadAnimator();
     }
 

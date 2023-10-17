@@ -885,10 +885,10 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 2
   windowsGamepadBackendHint: 0
-  cloudProjectId: d374cc08-a4b8-4363-8b97-0d61970d2c35
+  cloudProjectId: 87cf1875-498f-4d29-817d-361d136f1e8a
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: Survivor (4)
+  projectName: Survivor
   organizationId: unity_acnam_viwxtjaw
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0

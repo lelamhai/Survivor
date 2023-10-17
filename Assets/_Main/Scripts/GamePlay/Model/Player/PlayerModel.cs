@@ -7,7 +7,10 @@ public class PlayerModel : BaseModel
 
     private void LateUpdate()
     {
-        ClientInput();
+        if (IsClient && IsOwner)
+        {
+            ClientInput();
+        }
         FlipPlayer();
     }
 
@@ -31,5 +34,5 @@ public class PlayerModel : BaseModel
     }
 
     protected override void SetDefaultValue()
-    { }
+    {}
 }

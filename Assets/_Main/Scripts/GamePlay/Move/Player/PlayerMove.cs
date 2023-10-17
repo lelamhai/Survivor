@@ -1,13 +1,9 @@
+using Unity.Netcode;
 using UnityEngine;
 
 public class PlayerMove : BaseMove
 {
     [SerializeField] private Rigidbody2D _rigidbody2D;
-
-    private void LateUpdate()
-    {
-        Movement();
-    }
 
     protected override void Movement()
     {
@@ -17,13 +13,19 @@ public class PlayerMove : BaseMove
 
     protected override void SetDefaultValue()
     {
+        SetSpeed();
+        SetCanMove();
+        LoadRigidbody();
+    }
+
+    private void SetSpeed()
+    {
         _speed = 2f;
     }
 
-    protected override void LoadComponent()
+    private void SetCanMove()
     {
-        base.LoadComponent();
-        LoadRigidbody();
+        _canMove = true;
     }
 
     private void LoadRigidbody()

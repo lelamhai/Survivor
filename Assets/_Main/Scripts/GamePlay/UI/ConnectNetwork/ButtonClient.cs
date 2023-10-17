@@ -7,7 +7,7 @@ public class ButtonClient : BaseButton
 {
     protected override void OnClickButton()
     {
-        NetworkManager.Singleton.StartClient();
+        RelayManager.Instance.StartCoroutine(RelayManager.Instance.ConfigureTransportAndStartNgoAsConnectingPlayer());
         UIManager.Instance.SetPanelState(NamePanel.ConnectNetwork, StatePanel.Hide);
         UIManager.Instance.SetPanelState(NamePanel.Waiting, StatePanel.Show);
     }

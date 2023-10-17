@@ -7,7 +7,8 @@ public class ButtonHost : BaseButton
 {
     protected override void OnClickButton()
     {
-        NetworkManager.Singleton.StartHost();
+        //NetworkManager.Singleton.StartHost();
+        RelayManager.Instance.StartCoroutine(RelayManager.Instance.ConfigureTransportAndStartNgoAsHost());
         UIManager.Instance.SetPanelState(NamePanel.ConnectNetwork, StatePanel.Hide);
         UIManager.Instance.SetPanelState(NamePanel.Waiting, StatePanel.Show);
     }

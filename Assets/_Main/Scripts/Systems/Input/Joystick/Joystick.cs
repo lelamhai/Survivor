@@ -45,11 +45,7 @@ public class Joystick : BaseMonoBehaviour, IPointerDownHandler, IPointerUpHandle
     }
 
     protected override void SetDefaultValue()
-    {}
-
-    protected override void LoadComponent()
     {
-        base.LoadComponent();
         LoadJoystick();
     }
 

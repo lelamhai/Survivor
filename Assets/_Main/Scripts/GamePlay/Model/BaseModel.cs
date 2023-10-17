@@ -4,9 +4,8 @@ public abstract class BaseModel : BaseMonoBehaviour
 {
     [SerializeField] protected SpriteRenderer _spriteRenderer;
 
-    protected override void LoadComponent()
+    protected override void SetDefaultValue()
     {
-        base.LoadComponent();
         LoadSprite();
     }
 

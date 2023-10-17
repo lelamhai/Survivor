@@ -1,3 +1,4 @@
+using Unity.Netcode;
 using UnityEngine;
 
 public abstract class BaseSpawn : BaseMonoBehaviour
@@ -5,6 +6,7 @@ public abstract class BaseSpawn : BaseMonoBehaviour
     [Header("Base Spawn")]
     [SerializeField] protected BaseDatabaseSO _database;
     [SerializeField] protected BaseHolders _baseHolders = null;
+    [SerializeField] protected string _pathFolder = "Folder Database asset" + Const.Prefix.ASSETS;
 
     public Transform FindDatabaseById(int id)
     {
@@ -15,7 +17,7 @@ public abstract class BaseSpawn : BaseMonoBehaviour
         return null;
     }
 
-    public void Spawn(int id)
+    public void Spawn(int id, Transform point)
     {
         Transform gameObject = _baseHolders.Get(id);
         if (gameObject == null)
@@ -23,7 +25,8 @@ public abstract class BaseSpawn : BaseMonoBehaviour
             Transform findObject = FindDatabaseById(id);
             if(findObject != null)
             {
-                Transform clone = Clone(findObject);
+                Transform clone = Clone(findObject, point);
+                clone.GetComponent<NetworkObject>().Spawn();
                 clone.SetParent(_baseHolders.transform);
             }
         }
@@ -34,14 +37,13 @@ public abstract class BaseSpawn : BaseMonoBehaviour
         _baseHolders.Release(key, value);
     }
 
-    private Transform Clone(Transform item)
+    private Transform Clone(Transform item, Transform point)
     {
-        return Instantiate(item);
+        return Instantiate(item, point);
     }
    
-    protected override void LoadComponent()
+    protected override void SetDefaultValue()
     {
-        base.LoadComponent();
         LoadHolder();
     }
 

@@ -8,7 +8,10 @@ public class PlayerAnimation : BaseAnimation
 
     private void LateUpdate()
     {
-        ClientInput();
+        if (IsClient && IsOwner)
+        {
+            ClientInput();
+        } 
         AnimationPlayer();
     }
 

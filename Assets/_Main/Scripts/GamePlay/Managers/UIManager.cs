@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -7,7 +5,8 @@ using UnityEngine;
 public enum NamePanel
 {
     ConnectNetwork,
-    Waiting
+    Waiting,
+    GanePlay
 }
 
 public enum StatePanel
@@ -24,22 +23,6 @@ public class UIManager : Singleton<UIManager>
     private void Start()
     {
         SetPanelState(_currentUIState, StatePanel.Show);
-    }
-
-    private void OnEnable()
-    {
-        GameManager.Instance._StartGame += StartGame;
-    }
-
-    private void OnDisable()
-    {
-        GameManager.Instance._StartGame -= StartGame;
-    }
-
-    private void StartGame()
-    {
-        _currentUIState = NamePanel.Waiting;
-        SetPanelState(NamePanel.Waiting, StatePanel.Hide);
     }
 
     public void SetPanelState(NamePanel namePanel, StatePanel statePanel)
@@ -75,11 +58,7 @@ public class UIManager : Singleton<UIManager>
     }
 
     protected override void SetDefaultValue()
-    {}
-
-    protected override void LoadComponent()
     {
-        base.LoadComponent();
         LoadAllPanelUI();
     }
 
