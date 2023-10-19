@@ -27,9 +27,12 @@ public class PlayerModel : BaseModel
 
     private void FlipPlayer()
     {
-        if (net_Position.Value.x != 0)
+        if (net_Position.Value.x < 0)
         {
-            _spriteRenderer.flipX = net_Position.Value.x < 0;
+            this.transform.localRotation = Quaternion.Euler(0, -180, 0);
+        } else if(net_Position.Value.x > 0)
+        {
+            this.transform.localRotation = Quaternion.Euler(Vector3.zero);
         }
     }
 

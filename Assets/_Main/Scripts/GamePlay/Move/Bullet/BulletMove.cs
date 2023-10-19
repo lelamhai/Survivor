@@ -16,7 +16,7 @@ public class BulletMove : BaseMove
 
     private void SetDirection()
     {
-        _direction = Vector3.right;
+        _direction = Vector2.right;
     }
 
     private void SetSpeed()

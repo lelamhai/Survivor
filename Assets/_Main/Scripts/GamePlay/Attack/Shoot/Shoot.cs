@@ -2,16 +2,6 @@ using Unity.Netcode;
 
 public class Shoot : BaseAttack
 {
-    //private void Update()
-    //{
-    //    if (!IsOwner) return;
-
-    //    if (Input.GetKeyDown(KeyCode.Space))
-    //    {
-    //        FireBulletServerRpc();
-    //    }
-    //}
-
     private void OnEnable()
     {
         InputManager.Instance._Shoot += FireBullet;
